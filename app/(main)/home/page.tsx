@@ -2,7 +2,7 @@ import GenerateBillSection from "@/app/components/pages/home/components/generate
 import Intro from "@/app/components/pages/home/components/intro";
 import JoinMerchantsSection from "@/app/components/pages/home/components/join-merchants-section";
 import LastIntegrationSection from "@/app/components/pages/home/components/last-integration-section";
-import MerchantDashboardSection from "@/app/components/pages/home/components/merchant-dashboard-section";
+// import MerchantDashboardSection from "@/app/components/pages/home/components/merchant-dashboard-section";
 import PaymentIntegrations from "@/app/components/pages/home/components/payment-integrations";
 import PaymentSolutionsSection from "@/app/components/pages/home/components/payment-solutions-section";
 import RemittanceApiSection from "@/app/components/pages/home/components/remittance-api-section";
@@ -24,8 +24,6 @@ export default function Home() {
       <GenerateBillSection />
 
       <WhatStarPayOffersSection />
-
-      <MerchantDashboardSection />
 
       <LastIntegrationSection />
 
@@ -50,7 +48,7 @@ export default function Home() {
           <h2 className="text-4xl font-bold mb-6">
             Continue Exploring StarPay
           </h2>
-          <p className="text-white/70 text-lg max-w-3xl mx-auto">
+          <p className="text-white/70 text-lg mx-auto">
             Discover more features and benefits of using StarPay for your
             business.
           </p>
