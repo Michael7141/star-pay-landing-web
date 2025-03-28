@@ -21,6 +21,7 @@ interface PaymentMethod {
   title: string;
   description: string;
   icon: string | React.ReactNode;
+  deviceImage?: string;
   screenContent: string;
 }
 
@@ -29,13 +30,14 @@ export default function GenerateBillSection() {
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
   const [activeMethod, setActiveMethod] = useState("qr");
 
-  // Define payment methods with their respective screen content
+  // Define payment methods with their respective device and screen content
   const paymentMethods: PaymentMethod[] = [
     {
       id: "qr",
       title: "QR Payment",
       description:
         "Merchants can easily generate a QR code that customers scan to make payments instantly. It's a fast, contactless method that enhances in-store transactions, allowing for quick payment with just a smartphone.",
+      deviceImage: "/device1.png",
       screenContent: "/device1.png",
       icon: <QrCodeIcon className="w-11 h-11" />,
     },
@@ -44,6 +46,7 @@ export default function GenerateBillSection() {
       title: "Link Payment",
       description:
         "Merchants can create a custom payment link and share it with customers via SMS, email, or social media. Customers can click on the link, make a secure payment, and complete their transaction quickly from anywhere.",
+      deviceImage: "/iphone15.png",
       screenContent: "/iphone15.png",
       icon: <LinkIcon className="w-11 h-11" />,
     },
@@ -52,6 +55,7 @@ export default function GenerateBillSection() {
       title: "Pay by Reference",
       description:
         "Merchants can generate a unique reference code for the transaction. Customers use this code to complete their payment, providing a simple and efficient way for repeat or bulk payments.",
+      deviceImage: "/iphone15.png",
       screenContent: "/iphone15.png",
       icon: <ReferenceIcon className="w-11 h-11" />,
     },
@@ -60,6 +64,7 @@ export default function GenerateBillSection() {
       title: "Pay by OTP",
       description:
         "For added security, merchants can send a one-time password (OTP) directly to the customer's phone. The customer enters the OTP to verify and complete the payment, ensuring a secure transaction process.",
+      deviceImage: "/device1.png",
       screenContent: "/iphone15.png",
       icon: <OTPIcon className="w-11 h-11" />,
     },
@@ -68,6 +73,7 @@ export default function GenerateBillSection() {
       title: "Pay by USSD",
       description:
         "Merchants can provide customers with a USSD code to complete payments without requiring internet access. This is a reliable option for customers with basic phones or in areas with low connectivity.",
+      deviceImage: "/device1.png",
       screenContent: "/iphone15.png",
       icon: <USSDIcon className="w-11 h-11" />,
     },
@@ -118,19 +124,18 @@ export default function GenerateBillSection() {
           RECEIVE PAYMENTS
         </motion.h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center rounded-xl overflow-hidden">
           {/* Left side - Payment methods */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="space-y-6"
           >
             {paymentMethods.map((method) => (
               <motion.div
                 key={method.id}
                 variants={itemVariants}
-                className={`bg-white/80 backdrop-blur-sm rounded-xl p-6 flex gap-4 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden cursor-pointer ${
+                className={`backdrop-blur-sm p-6 flex gap-4 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden cursor-pointer ${
                   activeMethod === method.id ? "bg-[#E6FFF7] shadow-md" : ""
                 }`}
                 onClick={() => setActiveMethod(method.id)}
@@ -161,48 +166,34 @@ export default function GenerateBillSection() {
           </motion.div>
 
           {/* Right side - Phone with payment method image */}
-          <motion.div
-            className="flex justify-center"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={
-              isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }
-            }
-            transition={{ duration: 0.7, delay: 0.3 }}
-          >
-            <div className="relative w-64 md:w-72">
-              {/* Phone frame */}
-              <div className="relative z-10">
-                <Image
-                  src={"/iphone15.png"}
-                  alt="Phone"
-                  width={300}
-                  height={600}
-                  className="w-full h-auto"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "/iphone15.png";
-                  }}
-                />
-              </div>
-
-              {/* Phone screen content */}
-              <div className="absolute top-[12%] left-[8%] right-[8%] bottom-[12%] z-0 overflow-hidden rounded-3xl bg-emerald-700">
+          <div className="bg-[#F5F5F5] w-full h-full flex flex-col justify-center">
+            <motion.div
+              className="flex justify-center"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={
+                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }
+              }
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
+              <div className="relative w-64 md:w-72">
+                {/* Phone frame */}
                 <AnimatePresence mode="wait">
                   <motion.div
-                    key={activeMethod}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                    key={`device-${activeMethod}`}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.5 }}
-                    className="w-full h-full relative"
+                    className="relative z-10"
                   >
                     <Image
                       src={
-                        activePaymentMethod.screenContent || "/placeholder.svg"
+                        activePaymentMethod.deviceImage || "/placeholder.svg"
                       }
-                      alt={activePaymentMethod.title}
-                      fill
-                      className="object-cover"
+                      alt="Phone"
+                      width={300}
+                      height={600}
+                      className="w-full h-auto"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.src = "/iphone15.png";
@@ -210,26 +201,28 @@ export default function GenerateBillSection() {
                     />
                   </motion.div>
                 </AnimatePresence>
-              </div>
 
-              {/* Stone base */}
-              <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 w-full">
-                <Image
-                  src="/bg.png"
-                  alt="Stone Base"
-                  width={400}
-                  height={100}
-                  className="w-full h-auto"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    // Create a gray stone-like shape as fallback
-                    target.src =
-                      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='100' viewBox='0 0 400 100'%3E%3Cpath d='M20,20 L380,20 L350,80 L50,80 Z' fill='%23555555'/%3E%3C/svg%3E";
-                  }}
-                />
+                {/* Phone screen content */}
+
+                {/* Stone base */}
+                <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 w-full">
+                  <Image
+                    src="/bg.png"
+                    alt="Stone Base"
+                    width={1600}
+                    height={1600}
+                    className="w-full h-auto"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      // Create a gray stone-like shape as fallback
+                      target.src =
+                        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='100' viewBox='0 0 400 100'%3E%3Cpath d='M20,20 L380,20 L350,80 L50,80 Z' fill='%23555555'/%3E%3C/svg%3E";
+                    }}
+                  />
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
