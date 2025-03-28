@@ -19,9 +19,9 @@ import ProductFeaturesSection from "@/app/components/pages/products/product-feat
 
 export default function Home() {
   return (
-    <div>
       <div>
         <HeroSection />
+
         <PaymentIntegrations />
 
         <ExpandingVideoSection 
@@ -31,7 +31,6 @@ export default function Home() {
         />
         
         <RequestMoneySection />
-
 
         <GenerateBillSection />
 
@@ -43,12 +42,8 @@ export default function Home() {
 
         <StarCoinSection />
 
-        
-
-        {/* SecuritySection */}
         <SecuritySection />
 
-        {/* ProductFeaturesSection */}
         <ProductFeaturesSection />
 
         <JoinMerchantsSection />
@@ -59,6 +54,5 @@ export default function Home() {
 
         {/* <StickySectionContent /> */}
       </div>
-    </div>
   );
 }
