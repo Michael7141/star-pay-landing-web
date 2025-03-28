@@ -12,7 +12,7 @@ interface PaymentStep {
   title: string
   description: string
   deviceImage: string
-  screenImage: string
+  // screenImage: string
   fallbackImage: string
 }
 
@@ -24,7 +24,7 @@ const paymentSteps: PaymentStep[] = [
     description:
       "Start by creating a payment request in your StarPay merchant account. Simply enter the amount and generate a unique payment reference.",
     deviceImage: "/device1.png",
-    screenImage: "/images/step1-screen.png",
+    // screenImage: "/images/step1-screen.png",
     fallbackImage: "/placeholder.svg?height=600&width=300",
   },
   {
@@ -33,7 +33,7 @@ const paymentSteps: PaymentStep[] = [
     description:
       "Select from multiple payment methods including USSD, OTP, QR Code, or payment links via SMS or email to best suit your customer's preference.",
     deviceImage: "/device1.png",
-    screenImage: "/images/step2-screen.png",
+    // screenImage: "/images/step2-screen.png",
     fallbackImage: "/placeholder.svg?height=600&width=300",
   },
   {
@@ -42,7 +42,7 @@ const paymentSteps: PaymentStep[] = [
     description:
       "Your customer completes the payment using their preferred method. The transaction is processed securely through StarPay's platform.",
     deviceImage: "/device1.png",
-    screenImage: "/images/step3-screen.png",
+    // screenImage: "/images/step3-screen.png",
     fallbackImage: "/placeholder.svg?height=600&width=300",
   },
   {
@@ -51,7 +51,7 @@ const paymentSteps: PaymentStep[] = [
     description:
       "Capture essential customer details for your records and to enhance future transactions. All data is securely stored in compliance with privacy regulations.",
     deviceImage: "/device1.png",
-    screenImage: "/images/step4-screen.png",
+    // screenImage: "/images/step4-screen.png",
     fallbackImage: "/placeholder.svg?height=600&width=300",
   },
   {
@@ -60,7 +60,7 @@ const paymentSteps: PaymentStep[] = [
     description:
       "The payment is processed instantly. Within seconds, you'll receive confirmation that the funds have been transferred to your account.",
     deviceImage: "/device1.png",
-    screenImage: "/images/step5-screen.png",
+    // screenImage: "/images/step5-screen.png",
     fallbackImage: "/placeholder.svg?height=600&width=300",
   },
   {
@@ -69,7 +69,7 @@ const paymentSteps: PaymentStep[] = [
     description:
       "Confirm the transaction details and verify that the payment has been successfully processed. A receipt is generated for both you and your customer.",
     deviceImage: "/device1.png",
-    screenImage: "/images/step5-screen.png",
+    // screenImage: "/images/step5-screen.png",
     fallbackImage: "/placeholder.svg?height=600&width=300",
   },
 ]
@@ -391,7 +391,7 @@ export default function RequestMoneySection() {
                   />
 
                   {/* Phone screen content */}
-                  <div className="absolute top-[12%] left-[8%] right-[8%] bottom-[12%] z-0 overflow-hidden rounded-3xl bg-emerald-100">
+                  {/* <div className="absolute top-[12%] left-[8%] right-[8%] bottom-[12%] z-0 overflow-hidden rounded-3xl bg-emerald-100">
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={`screen-${activeStep}`}
@@ -413,7 +413,7 @@ export default function RequestMoneySection() {
                         />
                       </motion.div>
                     </AnimatePresence>
-                  </div>
+                  </div> */}
                 </motion.div>
               </AnimatePresence>
 
