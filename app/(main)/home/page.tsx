@@ -1,13 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-// import StarNewsSection from "@/app/components/pages/about-us/components/star-news-section";
 import NewsSection from "@/app/components/pages/about-us/components/news-section";
 import ExpandingVideoSection from "@/app/components/pages/home/components/expanding-video-section";
 import GenerateBillSection from "@/app/components/pages/home/components/generate-bill-section";
 import HeroSection from "@/app/components/pages/home/components/hero-section";
-import Intro from "@/app/components/pages/home/components/intro";
 import JoinMerchantsSection from "@/app/components/pages/home/components/join-merchants-section";
 import LastIntegrationSection from "@/app/components/pages/home/components/last-integration-section";
-// import MerchantDashboardSection from "@/app/components/pages/home/components/merchant-dashboard-section";
+import MerchantDashboardSection from "@/app/components/pages/home/components/merchant-dashboard-section";
 import PaymentIntegrations from "@/app/components/pages/home/components/payment-integrations";
 import PaymentSolutionsSection from "@/app/components/pages/home/components/payment-solutions-section";
 import RemittanceApiSection from "@/app/components/pages/home/components/remittance-api-section";
@@ -31,6 +29,8 @@ export default function Home() {
         />
         
         <RequestMoneySection />
+
+        <MerchantDashboardSection />
 
         <GenerateBillSection />
 
