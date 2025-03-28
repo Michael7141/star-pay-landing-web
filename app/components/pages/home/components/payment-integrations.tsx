@@ -38,8 +38,8 @@ export default function PaymentIntegrations() {
   }, [])
 
   return (
-    <section className="py-20 bg-white text-black">
-      <div className="container mx-auto px-4 text-center mb-12">
+    <div className="text-black py-16">
+      <div className="container mx-auto px-4 text-center mb-12 ">
         <div className="flex justify-center mb-6">
           <div className="rounded-lg">
             <Icon icon="solar:wallet-bold" className="w-24 h-24 text-[#008F5F]" />
@@ -47,29 +47,27 @@ export default function PaymentIntegrations() {
             {/* solar:wallet-bold */}
           </div>
         </div>
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">
-          OVER 50+
-          <br />
-          LOCAL & INTERNATIONAL
-          <br />
-          PAYMENT INTEGRATIONS
-        </h2>
-        <p className="text-[#6D6D6D] text-lg max-w-3xl mx-auto">
+        <div className="flex flex-col gap-1 text-4xl md:text-5xl font-bold mb-4">
+          <span>OVER 50+</span>
+          <span className="text-primary">LOCAL & INTERNATIONAL</span>
+          <span>PAYMENT INTEGRATIONS</span>
+        </div>
+        <p className="text-[#6D6D6D] text-lg max-w-4xl mx-auto">
           With StarPay, you can easily send or receive money from International and Local Banks and wallets.
         </p>
       </div>
 
       {/* First row - moving right to left */}
-      <div className="relative w-full overflow-hidden py-4 mb-8">
+      <div className="relative w-full overflow-hidden py-4 mb-8 ">
         {isClient && (
           <div className="marquee-container">
             <div className="marquee-row marquee-right-to-left">
               {[...paymentIcons, ...paymentIcons].map((item, index) => (
                 <div
                   key={`first-${index}`}
-                  className="w-16 h-16 flex items-center justify-center bg-white rounded-full p-2 flex-shrink-0 mx-4"
+                  className="w-[100px] h-[100px] flex items-center justify-center bg-white rounded-full p-2 flex-shrink-0 mx-4"
                 >
-                  <Icon icon={item.icon || fallbackIcons[index % fallbackIcons.length]} className="w-12 h-12" />
+                  <Icon icon={item.icon || fallbackIcons[index % fallbackIcons.length]} className="w-20 h-20" />
                 </div>
               ))}
             </div>
@@ -78,16 +76,16 @@ export default function PaymentIntegrations() {
       </div>
 
       {/* Second row - moving left to right */}
-      <div className="relative w-full overflow-hidden py-4">
+      <div className="relative w-full overflow-hidden py-4 ">
         {isClient && (
           <div className="marquee-container">
             <div className="marquee-row marquee-left-to-right">
               {[...paymentIcons.reverse(), ...paymentIcons].map((item, index) => (
                 <div
                   key={`second-${index}`}
-                  className="w-16 h-16 flex items-center justify-center bg-white rounded-full p-2 flex-shrink-0 mx-4"
+                  className="w-[100px] h-[100px] flex items-center justify-center bg-white rounded-full p-2 flex-shrink-0 mx-4"
                 >
-                  <Icon icon={item.icon || fallbackIcons[index % fallbackIcons.length]} className="w-12 h-12" />
+                  <Icon icon={item.icon || fallbackIcons[index % fallbackIcons.length]} className="w-20 h-20" />
                 </div>
               ))}
             </div>
@@ -95,47 +93,8 @@ export default function PaymentIntegrations() {
         )}
       </div>
 
-      <style jsx>{`
-        .marquee-container {
-          width: 100%;
-          overflow: hidden;
-        }
-        
-        .marquee-row {
-          display: flex;
-          width: fit-content;
-          animation-duration: 30s;
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
-        }
-        
-        .marquee-right-to-left {
-          animation-name: marquee-right-to-left;
-        }
-        
-        .marquee-left-to-right {
-          animation-name: marquee-left-to-right;
-        }
-        
-        @keyframes marquee-right-to-left {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        
-        @keyframes marquee-left-to-right {
-          0% {
-            transform: translateX(-50%);
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-      `}</style>
-    </section>
+   
+    </div>
   )
 }
 

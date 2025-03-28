@@ -19,42 +19,42 @@ const paymentSteps: PaymentStep[] = [
     id: "step1",
     title: "01. Initiate Your Bill",
     description: "Start the payment process by initiating your bill in just a few taps.",
-    image: "/initiate-bill.png",
+    image: "/device1.png",
     fallbackImage: "/placeholder.svg"
   },
   {
     id: "step2",
     title: "02. Choose Payment Options",
     description: "Select from various secure payment methods that work best for you.",
-    image: "/payment-options.png",
+    image: "/iphone15.png",
     fallbackImage: "/placeholder.svg"
   },
   {
     id: "step3",
     title: "03. Receive Your Payment",
     description: "Instantly receive payments directly to your account.",
-    image: "/receive-payment.png",
+    image: "/iphone15-first-slide.png",
     fallbackImage: "/placeholder.svg"
   },
   {
     id: "step4",
     title: "04. Enter Your Customer Info.",
     description: "Provide customer details for a personalized payment experience.",
-    image: "/customer-info.png",
+    image: "/iphone15.png",
     fallbackImage: "/placeholder.svg"
   },
   {
     id: "step5",
     title: "05. Wait for Seconds",
     description: "The system processes your request in just seconds.",
-    image: "/processing.png",
+    image: "/iphone15.png",
     fallbackImage: "/placeholder.svg"
   },
   {
     id: "step6",
     title: "06. Verify Your Payment",
     description: "Confirm and complete your transaction securely.",
-    image: "/verify-payment.png",
+    image: "/iphone15.png",
     fallbackImage: "/placeholder.svg"
   },
 ];
@@ -97,7 +97,7 @@ const PaymentProcessSection: React.FC = () => {
   return (
     <div 
       ref={sectionRef} 
-      className="relative w-full bg-gray-50"
+      className="relative w-full bg-white"
       style={{ height: `${sectionHeight}px` }}
     >
       <div className="sticky top-0 h-screen flex items-center overflow-hidden py-16">
@@ -170,9 +170,8 @@ const PaymentProcessSection: React.FC = () => {
                       transition={{ duration: 0.8 }}
                       className="w-full h-full relative"
                     >
-                      {/* <Image
-                      src="/placeholder.svg"
-                        // src={paymentSteps[activeStep].image || paymentSteps[activeStep].fallbackImage || "/placeholder.svg"}
+                      <Image
+                        src={paymentSteps[activeStep].image || paymentSteps[activeStep].fallbackImage || "/placeholder.svg"}
                         alt={paymentSteps[activeStep].title}
                         fill
                         className="object-cover"
@@ -180,7 +179,7 @@ const PaymentProcessSection: React.FC = () => {
                           const target = e.target as HTMLImageElement;
                           target.src = paymentSteps[activeStep].fallbackImage || "/placeholder.svg";
                         }}
-                      /> */}
+                      />
                     </motion.div>
                   </AnimatePresence>
                 </div>

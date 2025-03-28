@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
 // Define theme variants for different pages
-type NavTheme = "light" | "dark" | "gray" | "blog"
+type NavTheme = "light" | "dark" | "gray" | "blog" | "home"
 
 interface NavThemeConfig {
   background: string
@@ -51,12 +51,19 @@ const themeConfigs: Record<NavTheme, NavThemeConfig> = {
     activeBackground: "bg-white/10",
     buttonVariant: "primary",
   },
+  home: {
+    background: "bg-black/25",
+    text: "text-white",
+    logo: "/light-logo.png", // Default logo
+    activeBackground: "bg-white/10",
+    buttonVariant: "primary",
+  },
 }
 
 // Route-based theme mapping
 const routeThemes: Record<string, NavTheme> = {
   "/": "dark",
-  "/home": "dark",
+  "/home": "home",
   "/about-us": "light",
   "/blog": "blog",
   "/products": "gray",

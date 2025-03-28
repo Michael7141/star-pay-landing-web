@@ -1,4 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+// import StarNewsSection from "@/app/components/pages/about-us/components/star-news-section";
+import NewsSection from "@/app/components/pages/about-us/components/news-section";
+import ExpandingVideoSection from "@/app/components/pages/home/components/expanding-video-section";
 import GenerateBillSection from "@/app/components/pages/home/components/generate-bill-section";
+import HeroSection from "@/app/components/pages/home/components/hero-section";
 import Intro from "@/app/components/pages/home/components/intro";
 import JoinMerchantsSection from "@/app/components/pages/home/components/join-merchants-section";
 import LastIntegrationSection from "@/app/components/pages/home/components/last-integration-section";
@@ -14,46 +19,45 @@ import ProductFeaturesSection from "@/app/components/pages/products/product-feat
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0a1a1a] text-white">
-      <Intro />
+    <div>
+      <div>
+        <HeroSection />
+        <PaymentIntegrations />
 
-      <PaymentIntegrations />
+        <RequestMoneySection />
 
-      <RequestMoneySection />
+        <ExpandingVideoSection 
+          videoSrc = "/sample-vid.mp4"
+          title = "EXPERIENCE THE FUTURE OF PAYMENTS"
+          subtitle = "See how StarPay is revolutionizing the way businesses accept payments across Ethiopia"
+        />
 
-      <GenerateBillSection />
+        <GenerateBillSection />
 
-      <WhatStarPayOffersSection />
+        <WhatStarPayOffersSection />
 
-      <LastIntegrationSection />
+        <LastIntegrationSection />
 
-      <RemittanceApiSection />
+        <RemittanceApiSection />
 
-      <StarCoinSection />
+        <StarCoinSection />
 
-      {/* SecuritySection */}
-      <SecuritySection />
+        
 
-      {/* ProductFeaturesSection */}
-      <ProductFeaturesSection />
+        {/* SecuritySection */}
+        <SecuritySection />
 
-      <JoinMerchantsSection />
+        {/* ProductFeaturesSection */}
+        <ProductFeaturesSection />
 
-      <PaymentSolutionsSection />
+        <JoinMerchantsSection />
 
-      {/* <StickySectionContent /> */}
+        <PaymentSolutionsSection />
 
-      <section className="py-20 bg-[#0a1a1a]">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">
-            Continue Exploring StarPay
-          </h2>
-          <p className="text-white/70 text-lg mx-auto">
-            Discover more features and benefits of using StarPay for your
-            business.
-          </p>
-        </div>
-      </section>
+        <NewsSection />
+
+        {/* <StickySectionContent /> */}
+      </div>
     </div>
   );
 }
