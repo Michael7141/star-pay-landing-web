@@ -24,13 +24,14 @@ export default function Home() {
         <HeroSection />
         <PaymentIntegrations />
 
-        <RequestMoneySection />
-
         <ExpandingVideoSection 
           videoSrc = "/sample-vid.mp4"
           title = "EXPERIENCE THE FUTURE OF PAYMENTS"
           subtitle = "See how StarPay is revolutionizing the way businesses accept payments across Ethiopia"
         />
+        
+        <RequestMoneySection />
+
 
         <GenerateBillSection />
 

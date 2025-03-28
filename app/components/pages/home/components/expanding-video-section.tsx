@@ -55,7 +55,7 @@ export default function ExpandingVideoSection({
   }, [hasPlayed])
 
   return (
-    <section ref={sectionRef} className="relative min-h-[150vh] bg-white overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-[100vh] bg-white overflow-hidden">
       {/* Sticky container to keep video in view while scrolling */}
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden">
         {/* Initial content overlay */}
