@@ -12,7 +12,7 @@ import RemittanceApiSection from "@/app/components/pages/home/components/remitta
 import RequestMoneySection from "@/app/components/pages/home/components/request-money-section";
 import SecuritySection from "@/app/components/pages/home/components/security-section";
 import StarCoinSection from "@/app/components/pages/home/components/star-coin-section";
-import WhatStarPayOffersSection from "@/app/components/pages/home/components/what-starpay-offers-section";
+import WhatStarPayOffersSection from "@/app/components/pages/home/components/what-starpay-offers";
 import ProductFeaturesSection from "@/app/components/pages/products/product-features-section";
 
 export default function Home() {
