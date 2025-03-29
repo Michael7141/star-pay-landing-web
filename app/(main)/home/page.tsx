@@ -12,7 +12,7 @@ import RemittanceApiSection from "@/app/components/pages/home/components/remitta
 import RequestMoneySection from "@/app/components/pages/home/components/request-money-section";
 import SecuritySection from "@/app/components/pages/home/components/security-section";
 import StarCoinSection from "@/app/components/pages/home/components/star-coin-section";
-import WhatStarPayOffersSection from "@/app/components/pages/home/components/what-starpay-offers";
+import WhatStarPayOffersSection from "@/app/components/pages/home/components/what-starpay-offers-section";
 import ProductFeaturesSection from "@/app/components/pages/products/product-features-section";
 import { QrCodeIcon, LinkIcon, ReferenceIcon } from "@/lib/svg";
 
@@ -65,9 +65,9 @@ export default function Home() {
 
         <GenerateBillSection />
 
-        {/* <WhatStarPayOffersSection /> */}
+        <WhatStarPayOffersSection />
         
-        <WhatStarPayOffersSection
+        {/* <WhatStarPayOffersSection
       title="WHAT STARPAY OFFERS"
       subtitle="A Comprehensive And Detailed Guide To Effortlessly Integrating With The Gateway API, Covering All The Essential Steps, Best Practices, And Tips To Ensure A Smooth And Successful Implementation."
       bottomTitle="THE FUTURE OF PAYMENT IS"
@@ -75,7 +75,7 @@ export default function Home() {
       bgColor="bg-emerald-950"
       textColor="text-white"
       cards={customCards}
-    />
+    /> */}
 
         <LastIntegrationSection />
 
